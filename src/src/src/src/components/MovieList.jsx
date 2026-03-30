@@ -1,6 +1,6 @@
 import './MovieList.css'
 
-function MovieList({ movieList }) {
+function MovieList({ movieList, onToggleWatched }) {
   if (movieList.length === 0) {
     return (
       <div className="empty-state">
@@ -20,6 +20,16 @@ function MovieList({ movieList }) {
             <span className="movie-rating">⭐ {movie.rating}</span>
           </div>
           <p className="movie-genre">🎭 {movie.genre}</p>
+          <div className="watched-checkbox">
+            <label>
+              <input
+                type="checkbox"
+                checked={movie.watched || false}
+                onChange={() => onToggleWatched(movie.id)}
+              />
+              Просмотрено
+            </label>
+          </div>
         </div>
       ))}
     </div>

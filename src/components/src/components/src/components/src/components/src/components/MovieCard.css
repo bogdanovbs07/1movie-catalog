@@ -1,0 +1,42 @@
+.movie-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.movie-title {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1.3em;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 8px;
+}
+
+.movie-info p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.movie-info strong {
+  color: #333;
+}
+
+.movie-rating {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.stars {
+  margin-left: 10px;
+  color: #ffc107;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+}

@@ -1,0 +1,24 @@
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 20px 0;
+}
+
+.empty-state {
+  background: white;
+  border-radius: 15px;
+  padding: 60px 20px;
+  text-align: center;
+  color: #666;
+}
+
+.empty-state p {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+.empty-state-subtitle {
+  color: #999;
+  font-size: 0.9em;
+}

@@ -1,75 +1,52 @@
-import { useState } from 'react';
-import MovieList from './components/MovieList';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import MovieDetails from './pages/MovieDetails';
 
-const initialMovies = [
+const allMovies = [
   {
     id: 1,
-    title: "Начало",
-    year: 2010,
-    director: "Кристофер Нолан",
-    genre: "Фантастика",
-    rating: 8.8
+    title: "Побег из Шоушенка",
+    year: 1994,
+    genre: "Драма",
+    director: "Фрэнк Дарабонт",
+    rating: 9.1,
+    description: "Бухгалтер Энди Дюфрейн обвинён в убийстве собственной жены и её любовника. Оказавшись в тюрьме под названием Шоушенк, он сталкивается с жестокостью и беззаконием, царящими по обе стороны решётки. Каждый, кто попадает в эти стены, становится их рабом до конца жизни. Но Энди, обладающий живым умом и доброй душой, находит подход как к заключённым, так и к охранникам, добиваясь их особого к себе расположения."
   },
   {
     id: 2,
-    title: "Побег из Шоушенка",
-    year: 1994,
-    director: "Фрэнк Дарабонт",
-    genre: "Драма",
-    rating: 9.3
+    title: "Крёстный отец",
+    year: 1972,
+    genre: "Криминал",
+    director: "Фрэнсис Форд Коппола",
+    rating: 9.2,
+    description: "Криминальная сага, повествующая о нью-йоркской сицилийской мафиозной семье Корлеоне. Фильм охватывает период 1945-1955 годов. Глава семьи, Дон Вито Корлеоне, выдаёт замуж свою дочь. В это время со Второй мировой войны возвращается его любимый сын Майкл. Майкл, герой войны, гордость семьи, не выражает желания заняться жестоким семейным бизнесом. Дон Корлеоне ведёт дела по старым правилам, но наступают иные времена, и появляются люди, желающие изменить сложившиеся порядки."
   },
   {
     id: 3,
-    title: "Криминальное чтиво",
-    year: 1994,
-    director: "Квентин Тарантино",
-    genre: "Криминал",
-    rating: 8.9
-  },
-  {
-    id: 4,
     title: "Тёмный рыцарь",
     year: 2008,
-    director: "Кристофер Нолан",
     genre: "Боевик",
-    rating: 9.0
-  },
-  {
-    id: 5,
-    title: "Форрест Гамп",
-    year: 1994,
-    director: "Роберт Земекис",
-    genre: "Драма",
-    rating: 8.8
+    director: "Кристофер Нолан",
+    rating: 9.0,
+    description: "Бэтмен с помощью лейтенанта Джима Гордона и прокурора Харви Дента намерен очистить улицы Готэма от преступности, которая захлестнула город. Сотрудничество оказывается эффективным, но скоро они обнаружат себя посреди хаоса, развязанного восходящим криминальным гением, известным перепуганным горожанам под именем Джокер."
   }
 ];
 
 function App() {
-  const [movieList, setMovieList] = useState(initialMovies);
-
-  const clearMovieList = () => {
-    setMovieList([]);
-  };
-
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>Каталог фильмов</h1>
-        <div className="stats">
-          <span className="movie-count">
-            Всего фильмов: {movieList.length}
-          </span>
-          {movieList.length > 0 && (
-            <button onClick={clearMovieList} className="clear-btn">
-              Очистить список
-            </button>
-          )}
-        </div>
-      </header>
-      
-      <main>
-        <MovieList movieList={movieList} />
+    <div style={{
+      minHeight: '100vh',
+      backgroundColor: '#fafafa'
+    }}>
+      <main style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '20px'
+      }}>
+        <Routes>
+          <Route path="/" element={<Home movies={allMovies} />} />
+          <Route path="/movie/:id" element={<MovieDetails movies={allMovies} />} />
+        </Routes>
       </main>
     </div>
   );
